@@ -12,29 +12,39 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@capacitor/android": "7.2.0",
     "@capacitor/app": "7.0.1",
     "@capacitor/core": "7.2.0",
     "@capacitor/haptics": "7.0.1",
     "@capacitor/keyboard": "7.0.1",
+    "@capacitor/preferences": "^7.0.1",
     "@capacitor/status-bar": "7.0.1",
     "@ionic/react": "^8.5.0",
     "@ionic/react-router": "^8.5.0",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
+    "firebase": "^11.6.0",
+    "firebase-admin": "^13.3.0",
     "ionicons": "^7.4.0",
+    "lucide-react": "^0.488.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router": "^5.3.4",
-    "react-router-dom": "^5.3.4"
+    "react-router-dom": "^5.3.4",
+    "recharts": "^2.15.2",
+    "sonner": "^2.0.3",
+    "swiper": "^11.2.6",
+    "vite-plugin-env-compatible": "^2.0.1"
   },
   "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
     "@capacitor/cli": "7.2.0",
     "@testing-library/dom": ">=7.21.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.4.3",
-    "@types/react": "19.0.10",
-    "@types/react-dom": "19.0.4",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-legacy": "^5.0.0",
     "@vitejs/plugin-react": "^4.0.1",
     "cypress": "^13.5.0",
@@ -50,5 +60,9 @@
     "vite": "~5.2.0",
     "vitest": "^0.34.6"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "deleteUsers.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

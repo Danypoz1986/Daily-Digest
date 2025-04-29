@@ -1,18 +1,16 @@
-/// <reference types="vitest" />
+import { defineConfig, loadEnv } from 'vite';
+import react from '@vitejs/plugin-react';
 
-import legacy from '@vitejs/plugin-legacy'
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), 'VITE_'); // Ensure only VITE_ prefixed variables are loaded
+  return {
+    build: {
+      chunkSizeWarningLimit: 1000 // Set limit to 1000KB
+    },
+    plugins: [react()],
+    define: {
+      'import.meta.env': JSON.stringify(env), // Ensure env variables are stringified
+    },
+  };
+});
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [
-    react(),
-    legacy()
-  ],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/setupTests.ts',
-  }
-})

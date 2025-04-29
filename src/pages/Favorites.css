@@ -1,0 +1,36 @@
+.favorites-card-light{
+    background-color: #f3fce7;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.1s ease-in-out;
+}
+
+.favorites-card-dark{
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.1s ease-in-out;
+}
+
+.favorites-title-dark {
+    color: #4A90E2; 
+    margin-right: 30px; 
+    max-width: 85%;
+    word-break: break-word;
+  }
+  
+  .favorites-title-light {
+    color: blue;
+    margin-right: 30px; 
+    max-width: 85%;
+    word-break: break-word
+  }
+  
+
+.favorites-card:hover {
+    transform: scale(1.01);
+}

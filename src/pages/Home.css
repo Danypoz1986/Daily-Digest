@@ -1,0 +1,246 @@
+.slide-card {
+  width: 320px!important;
+  height: 200px!important;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+  .slide-card img {
+    width: 320px!important;
+    height: 200px!important;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 550px) {
+    .slide-card {
+      width: 240px!important;
+      height: 200px!important;
+    }
+
+    .slide-card img {
+      width: 240px!important;
+      height: 200px!important;
+    }
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+  }
+  
+  
+  .swiper{
+    height: auto;
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .slide-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    height: 3.2em; /* fits 2 lines with padding */
+    box-sizing: border-box; /* include padding inside height */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    mask-image: linear-gradient(180deg, #000 80%, transparent);
+  }
+  
+  
+  
+
+  .swiper {
+    height: auto;
+  }
+  
+  
+  .image-container {
+    position: relative;
+  }
+  
+  .swiper-pagination {
+    position: relative;
+    margin-top: 12px;
+    text-align: center;
+    z-index: 1;
+  }
+
+  
+  .scrollable-segment {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-left: 120px; /* 👈 ensures leftmost button is visible */
+    margin: 0; /* remove any margin that could cause offset */
+    scroll-padding-left: 8px; /* optional, for smoother scroll snapping */
+  }
+  
+  .scrollable-segment::-webkit-scrollbar {
+    display: none; /* hide scrollbar in Chrome, Safari */
+  }
+
+
+  ion-segment{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  ion-segment-button {
+    color: grey;
+  }
+
+  ion-segment-button {
+    --indicator-color: #08a391;
+  }
+
+  ion-segment-button:hover {
+    background-color: #e0e0e0;
+  }
+
+  /* Material Design styles */
+  ion-segment-button.md {
+    --color: #08a391;
+    --color-checked: grey ;
+    --indicator-height: 4px;
+  }
+
+  
+  .feed-card {
+    width: 100%;
+    min-width: 340px;
+    max-width: 500px; 
+  }
+
+  .colored-card-light{
+    background-color: #e6fff9;
+  }
+
+  .colored-card-dark{
+    background-color: #2a2a2a;
+  }
+
+
+  .colored-title{
+    color: #08a391;
+    font-weight: bold;
+  }
+  
+  
+  .feed-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  @media (min-width: 992px) {
+    .feed-card {
+      width: calc(50% - 16px); /* Two cards per row with gap */
+    }
+  }
+
+  @media (max-width: 400px) {
+    ion-segment{
+      padding-left: 50px;
+    }
+  }
+  
+.hover-zoom img {
+  transition: transform 0.3s ease;
+}
+
+.hover-zoom:hover img {
+  transform: scale(1.20);
+}
+
+.slide-card:hover .image-container img {
+  transform: scale(1.20);
+}
+
+.swiper-wrapper-fullwidth-light {
+  background-color: #f8f8f8;
+  margin-left:-16px; 
+  margin-right:-16px; 
+  margin-top:-16px; 
+  padding-top:30px;
+  text-align: center;
+  font-size: 50px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
+  margin-bottom: 10px;
+}
+
+.swiper-wrapper-fullwidth-dark {
+  background-color: #2a2a2a;
+  margin-left:-16px; 
+  margin-right:-16px; 
+  margin-top:-16px; 
+  padding-top:30px;
+  text-align: center;
+  font-size: 50px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
+  margin-bottom: 10px;
+}
+
+
+
+.swiper-title {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 16px;
+  animation: pulseColor 2.5s infinite;
+  color: #ff0055;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes pulseColor {
+  0% {
+    color: #ff0055;
+  }
+  50% {
+    color: #ffa3c2;
+  }
+  100% {
+    color: #ff0055;
+  }
+}
+

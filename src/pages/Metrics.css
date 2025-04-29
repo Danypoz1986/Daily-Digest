@@ -1,0 +1,17 @@
+.metrics-light {
+    --ion-background-color: #FFE5B4 !important; /* peach */
+  }
+  
+  .metrics-dark {
+    --ion-background-color: #121212 !important; /* dark background */
+  }
+.card-title-color-light{
+  color:black; 
+  margin-top: 8px
+}
+
+.card-title-color-dark{
+  color:#CCCCCC; 
+  margin-top: 8px
+}  
+

@@ -1,2 +1,68 @@
-/* For information on how to create your own theme, please see:
-http://ionicframework.com/docs/theming/ */
+:root {
+  /* Light Mode Colors */
+  --ion-background-color: #ffffff !important;
+  --ion-text-color: #000000 !important;
+
+  --ion-toolbar-background: #ffffff !important;
+  --ion-toolbar-color: #000000 !important;
+
+  --ion-card-background: #ffffff !important;
+  --ion-card-color: #000000 !important;
+
+  --ion-tab-bar-background: #ffffff !important;
+  --ion-item-border-color: var(--ion-background-color-step-200);
+
+
+  /* Toggle Custom Colors */
+  --toggle-bg: #e0e0e0;
+  --toggle-thumb: #ffffff;
+  --toggle-text: #000000;
+
+  /* Menu and List */
+  ion-menu {
+    --background: #ffffff !important;
+  }
+
+  ion-menu::part(backdrop) {
+    background: rgba(0, 0, 0, 0.32); /* optional dark backdrop */
+  }
+
+  ion-item, ion-list {
+    --background: #ffffff !important;
+    --color: #000000 !important;
+  }
+}
+
+/* Dark Mode */
+.ion-palette-dark {
+  --ion-background-color: #121212 !important;
+  --ion-text-color: #ffffff !important;
+
+  --ion-toolbar-background: #1e1e1e !important;
+  --ion-toolbar-color: #ffffff !important;
+
+  --ion-card-background: #1e1e1e !important;
+  --ion-card-color: #ffffff !important;
+
+  --ion-tab-bar-background: #1e1e1e !important;
+  --ion-item-border-color: var(--ion-background-color-step-200);
+
+  /* Toggle Custom Colors */
+  --toggle-bg: #3a3a3a;
+  --toggle-thumb: #4285f4;
+  --toggle-text: #cccccc;
+
+  /* Menu and List */
+  ion-menu {
+    --background: #1e1e1e !important;
+  }
+
+  ion-menu::part(backdrop) {
+    background: rgba(255, 255, 255, 0.1); /* optional light backdrop */
+  }
+
+  ion-item, ion-list {
+    --background: #1e1e1e !important;
+    --color: #ffffff !important;
+  }
+}

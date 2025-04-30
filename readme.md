@@ -134,8 +134,9 @@ npm run dev
 ```
 ### Android Production Build
 ```bash
-npm install
-npm run dev
+npm run build
+npx cap sync android
+npx cap open android
 ```
 In Android Studio: build → generate signed bundle → upload to Play Store or test locally.
 

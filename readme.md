@@ -237,6 +237,8 @@ The app uses **React Router** to manage navigation across protected and public p
 | `PublicRoute`    | Used for `/login` and `/register`. Redirects to `/app/home` if already logged in |
 | `NotFoundRoute`  | Catches all undefined routes and redirects to `/app/not-found`              |
 
+<br>
+
 ### 🗺️ Main Routes
 <!-- toc-ignore-start -->
 | Path             | Page             | Access Type |

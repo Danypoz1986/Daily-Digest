@@ -158,7 +158,7 @@ import { toast } from 'sonner'
                     <IonRow class='ion-justify-content-center'>
                         <IonCol size='12' sizeMd='8' sizeLg='6' sizeXl='4'>
                             <IonCard style={{marginTop:"40px"}}>
-                                <IonCardTitle style={{textAlign:"center", marginBottom:"10px"}} color={'tertiary'}>Change password</IonCardTitle>
+                                <IonCardTitle style={{textAlign:"center", marginTop:"10px"}} color={'tertiary'}>Change password</IonCardTitle>
                                 <IonCardContent>
                                     <form noValidate>
                                     <IonInput 
@@ -208,10 +208,7 @@ import { toast } from 'sonner'
                                     onClick={deleteUser}
                                     expand="block"
                                     fill='solid'
-                                    style={{ '--background':`${dark? '#c5000f':'#2f2f2f'}`, '--color':`${dark? 'black':'white'}`, marginTop:"100px"}}
-                                        
-                                             
-                                        
+                                    style={{ '--background':`${dark? '#c5000f':'#2f2f2f'}`, '--color':`${dark? 'black':'white'}`, marginTop:"100px"}}           
                                     >
                                     <b>Delete user</b> &nbsp;
                                     <IonIcon icon={skullOutline} />

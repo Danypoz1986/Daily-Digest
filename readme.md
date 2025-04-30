@@ -229,8 +229,6 @@ Dark mode is user-specific and persisted in Firestore. It affects:
 
 The app uses **React Router** to manage navigation across protected and public pages.
 
-<br>
-
 ### 🛡️ Route Types
 
 | Route Type       | Description                                                                 |
@@ -238,8 +236,6 @@ The app uses **React Router** to manage navigation across protected and public p
 | `ProtectedRoute` | Guards authenticated routes like `/app/home`, `/app/favorites`, `/app/metrics` |
 | `PublicRoute`    | Used for `/login` and `/register`. Redirects to `/app/home` if already logged in |
 | `NotFoundRoute`  | Catches all undefined routes and redirects to `/app/not-found`              |
-
-<br>
 
 ### 🗺️ Main Routes
 <!-- toc-ignore-start -->

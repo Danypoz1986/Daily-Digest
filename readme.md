@@ -95,6 +95,7 @@ All other users can:
 - On first login, the app immediately fetches the latest articles for the user.
 - Afterward, it fetches fresh articles once per hour, based on the current time in the Helsinki time zone.
 - This ensures news content is relevant while avoiding unnecessary API calls and staying within the rate limits of the NewsData API.
+- To simulate fresher news, the app sorts all fetched and stored articles by `pubDate` before displaying them to users, ensuring that the most recent content appears at the top.
 ---
 <br>
 

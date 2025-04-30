@@ -39,6 +39,10 @@ A mobile-friendly news aggregation app built with **Ionic React**, powered by **
   - [📂 Article Categorization](#-article-categorization)
   - [🧪 Testing Coverage](#-testing-coverage)
 - [📸 Screenshots](#-screenshots)
+- [🔗 Deployment](#-deployment)
+- [👉 Netlify Live URL: https://labwork-6-daily-digest.netlify.app/](#-netlify-live-url-httpslabwork-6-daily-digestnetlifyapp)
+- [📚 Sources](#-sources)
+- [Throughout the development process, I also used **ChatGPT** as a coding assistant to help solve problems, suggest code improvements, and structure features effectively.](#throughout-the-development-process-i-also-used-chatgpt-as-a-coding-assistant-to-help-solve-problems-suggest-code-improvements-and-structure-features-effectively)
 ---
 
 <br>
@@ -264,6 +268,8 @@ While the Daily Digest App is functional and user-friendly, there are some known
 - Currently, the app fetches fresh articles only on user login to avoid exceeding API rate limits.
 - Ideally, all users should receive the same hourly news, regardless of login time.
 - Implementing a background server fetch or cron job would require a paid NewsData.io subscription or cloud backend.
+- Despite applying filters to avoid duplicates, sometimes the same news appears multiple times in the feed. 
+This is likely due to inconsistencies in the NewsData API response. Filtering by title, URL, and content hash was attempted in the code.
 
 ### 🔄 Favorites Sync Enhancements
 
@@ -289,4 +295,29 @@ While the Daily Digest App is functional and user-friendly, there are some known
 | Dark Mode | Metrics | User Settings |
 |-----------|---------|---------------|   
 | ![Darkmode](screenshots/darkmode.png) | ![Metrics](screenshots/metrics.png) | ![User Settings](screenshots/userSettings.png) |
+
+---
+
+<br>
+
+## 🔗 Deployment
+The Daily Digest App is deployed and publicly accessible at:
+
+👉 Netlify Live URL: https://labwork-6-daily-digest.netlify.app/
+---
+
+<br>
+
+## 📚 Sources
+
+To get started, I was inspired by this YouTube tutorial:  
+[Build a News App with React & News API](https://www.youtube.com/watch?v=K7ghUiXLef8)
+
+Throughout the development process, I also used **ChatGPT** as a coding assistant to help solve problems, suggest code improvements, and structure features effectively.
+---
+
+<br>
+
+**App made by:** Daniel Pozzoli<br> 
+**Project Title:** *Daily Digest App*  
 

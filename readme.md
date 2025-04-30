@@ -41,6 +41,7 @@ A mobile-friendly news aggregation app built with **Ionic React**, powered by **
 - [📸 Screenshots](#-screenshots)
 - [🔗 Deployment](#-deployment)
 - [📚 Sources](#-sources)
+- [🧑‍💻 Developer Info](#-developer-info)
 ---
 
 <br>
@@ -318,7 +319,10 @@ Throughout the development process, I also used **ChatGPT** as a coding assistan
 
 <br>
 
-**App made by:** Daniel Pozzoli<br> 
+## 🧑‍💻 Developer Info
+
+**Name:** Daniel Pozzoli<br> 
 **Project Title:** *Daily Digest App*<br>
 **GitHub Repository:** [https://github.com/Danypoz1986/Daily-Digest](https://github.com/Danypoz1986/Daily-Digest)  
+**School:** Laurea University of Applied Sciences
 

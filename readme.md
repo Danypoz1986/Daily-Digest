@@ -229,6 +229,8 @@ Dark mode is user-specific and persisted in Firestore. It affects:
 
 The app uses **React Router** to manage navigation across protected and public pages.
 
+<br>
+
 ### 🛡️ Route Types
 
 | Route Type       | Description                                                                 |

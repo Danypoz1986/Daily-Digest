@@ -41,6 +41,7 @@ A mobile-friendly news aggregation app built with **Ionic React**, powered by **
 - [📸 Screenshots](#-screenshots)
 ---
 
+<br>
 
 ## 👥 User Needs
 

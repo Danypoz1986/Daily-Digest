@@ -10,6 +10,54 @@ A mobile-friendly news aggregation app built with **Ionic React**, powered by **
 ---
 <br>
 
+## Table of Contents
+- [Table of Contents](#table-of-contents)
+- [👥 User Needs](#-user-needs)
+- [🚀 Features](#-features)
+- [🧪 Test User Access](#-test-user-access)
+- [⏱️ News Fetching Behavior](#️-news-fetching-behavior)
+- [📦 Tech Stack](#-tech-stack)
+- [🔐 Environment Variables](#-environment-variables)
+- [📱 Build \& Run](#-build--run)
+  - [Local Development](#local-development)
+  - [Android Production Build](#android-production-build)
+- [🎨 Style Guide](#-style-guide)
+  - [🔵 Color Palette](#-color-palette)
+  - [🔤 Typography](#-typography)
+  - [🧱 Layout \& Spacing](#-layout--spacing)
+  - [🌓 Theme Modes](#-theme-modes)
+  - [🧩 Components](#-components)
+  - [💡 Alerts \& Toasts](#-alerts--toasts)
+  - [📱 Responsiveness](#-responsiveness)
+  - [📁 File Organization](#-file-organization)
+- [🧭 Routing Structure](#-routing-structure)
+  - [🛡️ Route Types](#️-route-types)
+  - [🗺️ Main Routes](#️-main-routes)
+- [| `/app/not-found` | 404 Page         | Catch-All   |](#-appnot-found--404-page----------catch-all---)
+- [🚧 Areas for Improvement](#-areas-for-improvement)
+  - [🕒 News Fetching Model](#-news-fetching-model)
+  - [🔄 Favorites Sync Enhancements](#-favorites-sync-enhancements)
+  - [📂 Article Categorization](#-article-categorization)
+  - [🧪 Testing Coverage](#-testing-coverage)
+- [📸 Screenshots](#-screenshots)
+---
+
+<br>
+
+## 👥 User Needs
+
+The **Daily Digest App** addresses the following user needs:
+
+- 📲 Quick access to relevant news — Users can browse a curated feed of trending articles without needing to visit multiple news sites.
+- ❤️ Personal content management — Users can save favorite articles to revisit later.
+- 🌙 Accessibility and comfort — Dark mode enhances reading experience in low-light environments.
+- 🌍 Multilingual content — Supports English, Finnish, and Italian articles for broader reach.
+- 🔒 Secure and personal experience — Each user has a private account with persistent settings like dark mode and favorites.
+
+---
+
+<br>
+
 ## 🚀 Features
 
 - 🔒 User authentication (Firebase Auth)
@@ -23,6 +71,31 @@ A mobile-friendly news aggregation app built with **Ionic React**, powered by **
 
 <br>
 
+## 🧪 Test User Access
+
+You can explore the app quickly using a test account:
+
+- **Email**: `test@test.test`  
+- **Password**: `123456`
+
+> ⚠️ Password changes and account deletion are **disabled** for the test user to ensure demo stability.
+
+All other users can:
+
+- Change their password  
+- Permanently delete their account from within the app
+
+
+<br>
+
+## ⏱️ News Fetching Behavior
+
+- On first login, the app immediately fetches the latest articles for the user.
+- Afterward, it fetches fresh articles once per hour, based on the current time in the Helsinki time zone.
+- This ensures news content is relevant while avoiding unnecessary API calls and staying within the rate limits of the NewsData API.
+---
+<br>
+
 ## 📦 Tech Stack
 
 - **Frontend**: Ionic React, Swiper, TypeScript
@@ -32,14 +105,6 @@ A mobile-friendly news aggregation app built with **Ionic React**, powered by **
 - **Styling**: Custom CSS, Ionicons
 - **Analytics**: In-app metrics view
 - **Routing**: React Router
----
-
-<br>
-
-## 🧪 Testing
-
-- ✅ Unit testing with **Vitest**
-- 🧪 E2E testing with **Cypress**
 ---
 
 <br>
@@ -158,6 +223,35 @@ Dark mode is user-specific and persisted in Firestore. It affects:
 
 ---
 
+<br>
+
+## 🧭 Routing Structure
+
+The app uses **React Router** to manage navigation across protected and public pages.
+
+### 🛡️ Route Types
+
+| Route Type       | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| `ProtectedRoute` | Guards authenticated routes like `/app/home`, `/app/favorites`, `/app/metrics` |
+| `PublicRoute`    | Used for `/login` and `/register`. Redirects to `/app/home` if already logged in |
+| `NotFoundRoute`  | Catches all undefined routes and redirects to `/app/not-found`              |
+
+### 🗺️ Main Routes
+
+| Path             | Page             | Access Type |
+|------------------|------------------|-------------|
+| `/login`         | Login Page       | Public      |
+| `/register`      | Register Page    | Public      |
+| `/app/home`      | Home Feed        | Protected   |
+| `/app/favorites` | Favorites        | Protected   |
+| `/app/metrics`   | User Metrics     | Protected   |
+| `/app/about`     | About App        | Protected   |
+| `/app/not-found` | 404 Page         | Catch-All   |
+---
+
+<br>
+
 ## 🚧 Areas for Improvement
 
 While the Daily Digest App is functional and user-friendly, there are some known limitations and improvement opportunities:
@@ -180,9 +274,20 @@ While the Daily Digest App is functional and user-friendly, there are some known
 - Categories are based on free-form API data and may result in inconsistent classification.
   
 - A manual or AI-based tagging layer could enhance discoverability.
-
+- 
 ### 🧪 Testing Coverage
 
 - Basic unit and e2e testing are implemented.
   
 - Could be expanded with more edge cases and error-handling tests, especially for network failures.
+
+## 📸 Screenshots
+
+| Login | Home | Favorites |
+|-------|------|-----------|
+| ![Login](screenshots/login.png) | ![Home](screenshots/home.png) | ![Favorites](screenshots/favorites.png) |
+
+| Dark Mode | Metrics | User Settings |
+|-----------|---------|---------------|   
+| ![Darkmode](screenshots/darkmode.png) | ![Metrics](screenshots/metrics.png) | ![User Settings](screenshots/userSettings.png) |
+

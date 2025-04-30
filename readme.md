@@ -276,7 +276,7 @@ While the Daily Digest App is functional and user-friendly, there are some known
 - Categories are based on free-form API data and may result in inconsistent classification.
   
 - A manual or AI-based tagging layer could enhance discoverability.
-- 
+  
 ### 🧪 Testing Coverage
 
 - Basic unit and e2e testing are implemented.

@@ -18,9 +18,9 @@ import {
     } from '@ionic/react';
 import { EmailAuthProvider, getAuth, reauthenticateWithCredential, updatePassword } from 'firebase/auth';
 import { deleteUser as firebaseDeleteUser } from 'firebase/auth'
-import { deleteDoc, doc, getFirestore } from 'firebase/firestore';
+import { deleteDoc, doc, getDoc, getFirestore } from 'firebase/firestore';
 import { personCircleOutline, skullOutline } from 'ionicons/icons';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner'
 
     const UserSettings: React.FC = () => {
@@ -30,7 +30,49 @@ import { toast } from 'sonner'
         const [newPassword, setNewPassword] = useState('');
         const oldPwRef = useRef<string>("");
         const newPwRef = useRef<string>("");
-  
+         const [dark, setDark] = useState(false);
+        
+        
+        useEffect(() => {
+            const fetchDarkMode = async () => {
+              const auth = getAuth();
+              const user = auth.currentUser;
+              const db = getFirestore();
+          
+              if (user) {
+                try {
+                  const userDocRef = doc(db, "users", user.uid);
+                  const userSnap = await getDoc(userDocRef);
+          
+                  if (userSnap.exists() && typeof userSnap.data().darkMode === "boolean") {
+                    setDark(userSnap.data().darkMode);
+                  } else {
+                    setDark(false); // If darkMode field doesn't exist, fallback to light mode
+                  }
+                } catch (error) {
+                  console.error("Error fetching dark mode from Firestore:", error);
+                  setDark(false); // Fallback to light if error
+                }
+              } else {
+                setDark(false); // No user logged in, fallback to light
+              }
+            };
+          
+            fetchDarkMode();
+          }, []);
+
+          useEffect(() => {
+                  const handleDarkModeChange = (event: Event) => {
+                    const customEvent = event as CustomEvent<{ dark: boolean }>;
+                    setDark(customEvent.detail.dark);
+                  };
+                
+                  window.addEventListener('darkmode-changed', handleDarkModeChange);
+                
+                  return () => {
+                    window.removeEventListener('darkmode-changed', handleDarkModeChange);
+                  };
+                }, []);
       
         const handlePasswordReset = async () => {
             const auth = getAuth();
@@ -110,7 +152,7 @@ import { toast } from 'sonner'
                     <IonTitle>User Settings</IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent style={{ overflowY: getAuth().currentUser?.email === 'test@test.test' ? 'hidden' : 'auto' }}>
+            <IonContent>
             { getAuth().currentUser?.email !== 'test@test.test' ? (
             <IonGrid fixed>
                     <IonRow class='ion-justify-content-center'>
@@ -162,38 +204,19 @@ import { toast } from 'sonner'
                                     </form>
                                 </IonCardContent>
                             </IonCard>
-                            {localStorage.getItem('darkMode') === 'false' ? (
                             <IonButton
                                     onClick={deleteUser}
                                     expand="block"
-                                    style={{
+                                    fill='solid'
+                                    style={{ '--background':`${dark? '#c5000f':'#2f2f2f'}`, '--color':`${dark? 'black':'white'}`, marginTop:"100px"}}
                                         
-                                        "--background":"#2f2f2f",
-                                        "--color":"white",
-                                        marginTop:"100px"     
+                                             
                                         
-                                    }}
                                     >
                                     <b>Delete user</b> &nbsp;
                                     <IonIcon icon={skullOutline} />
                                     </IonButton>
-                            ):(
-                                <IonButton
-                                    onClick={deleteUser}
-                                    expand="block"
-                                    style={{
-                                        
-                                        "--background":"#c5000f",
-                                        "--color":"black",
-                                        marginTop:"100px"     
-                                        
-                                    }}
-                                    >
-                                    <b>Delete user</b> &nbsp;
-                                    <IonIcon icon={skullOutline} />
-                                    </IonButton>
-                            )
-                            }  
+    
                         </IonCol>
                     </IonRow>
                 </IonGrid>

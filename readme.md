@@ -157,3 +157,32 @@ Dark mode is user-specific and persisted in Firestore. It affects:
 - Global classes follow naming like `.colored-card-dark`, `.swiper-title`, etc.
 
 ---
+
+## 🚧 Areas for Improvement
+
+While the Daily Digest App is functional and user-friendly, there are some known limitations and improvement opportunities:
+
+### 🕒 News Fetching Model
+
+- Currently, the app fetches fresh articles only on user login to avoid exceeding API rate limits.
+
+- Ideally, all users should receive the same hourly news, regardless of login time.
+
+- Implementing a background server fetch or cron job would require a paid NewsData.io subscription or cloud backend.
+
+### 🔄 Favorites Sync Enhancements
+- Favorites are stored in Firestore but are not yet synced across multiple devices for the same user.
+  
+- Could improve with real-time Firestore listeners or cloud functions.
+
+### 📂 Article Categorization
+
+- Categories are based on free-form API data and may result in inconsistent classification.
+  
+- A manual or AI-based tagging layer could enhance discoverability.
+
+### 🧪 Testing Coverage
+
+- Basic unit and e2e testing are implemented.
+  
+- Could be expanded with more edge cases and error-handling tests, especially for network failures.

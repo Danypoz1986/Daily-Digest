@@ -9,7 +9,7 @@ import Intro from '../components/Intro';
 import '../components/Intro.css'
 import './Login.css'
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
-import { loadDarkMode } from '../utils/loadDarkMode'
+
 
 
 const INTRO_KEY = 'intro-seen'
@@ -88,23 +88,6 @@ const Login: React.FC = () => {
                 console.log("🔁 registering:", data.registering);
                 console.log("🟢 firstLogin:", data.firstLogin);
             }
-            await loadDarkMode((isDark) => {
-                const html = document.documentElement;
-                const body = document.body;
-              
-                const backgroundColor = isDark ? '#121212' : '#ffffff';
-                const textColor = isDark ? '#ffffff' : '#000000';
-                const secondaryBackground = isDark ? '#1e1e1e' : '#ffffff';
-              
-                html.classList.toggle('ion-palette-dark', isDark);
-                html.style.setProperty('--ion-background-color', backgroundColor, 'important');
-                html.style.setProperty('--ion-text-color', textColor, 'important');
-                html.style.setProperty('--ion-toolbar-background', secondaryBackground, 'important');
-                html.style.setProperty('--ion-toolbar-color', textColor, 'important');
-                html.style.setProperty('--ion-tab-bar-background', secondaryBackground, 'important');
-              
-                body.style.backgroundColor = backgroundColor;
-              });
               
         }
 

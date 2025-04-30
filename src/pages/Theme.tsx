@@ -34,7 +34,6 @@ const Theme: React.FC = () => {
     html.style.setProperty('--ion-toolbar-color', textColor, 'important');
     html.style.setProperty('--ion-tab-bar-background', secondaryBackground, 'important');
     html.style.setProperty('--ion-icon-color', textColor, 'important');
-
   
     body.style.backgroundColor = backgroundColor;
   

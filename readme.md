@@ -40,9 +40,7 @@ A mobile-friendly news aggregation app built with **Ionic React**, powered by **
   - [🧪 Testing Coverage](#-testing-coverage)
 - [📸 Screenshots](#-screenshots)
 - [🔗 Deployment](#-deployment)
-- [👉 Netlify Live URL: https://labwork-6-daily-digest.netlify.app/](#-netlify-live-url-httpslabwork-6-daily-digestnetlifyapp)
 - [📚 Sources](#-sources)
-- [Throughout the development process, I also used **ChatGPT** as a coding assistant to help solve problems, suggest code improvements, and structure features effectively.](#throughout-the-development-process-i-also-used-chatgpt-as-a-coding-assistant-to-help-solve-problems-suggest-code-improvements-and-structure-features-effectively)
 ---
 
 <br>
@@ -304,6 +302,7 @@ This is likely due to inconsistencies in the NewsData API response. Filtering by
 The Daily Digest App is deployed and publicly accessible at:
 
 👉 Netlify Live URL: https://labwork-6-daily-digest.netlify.app/
+
 ---
 
 <br>
@@ -314,10 +313,12 @@ To get started, I was inspired by this YouTube tutorial:
 [Build a News App with React & News API](https://www.youtube.com/watch?v=K7ghUiXLef8)
 
 Throughout the development process, I also used **ChatGPT** as a coding assistant to help solve problems, suggest code improvements, and structure features effectively.
+
 ---
 
 <br>
 
 **App made by:** Daniel Pozzoli<br> 
-**Project Title:** *Daily Digest App*  
+**Project Title:** *Daily Digest App*<br>
+**GitHub Repository:** [https://github.com/Danypoz1986/Daily-Digest](https://github.com/Danypoz1986/Daily-Digest)  
 

@@ -33,7 +33,6 @@ A mobile-friendly news aggregation app built with **Ionic React**, powered by **
 - [🧭 Routing Structure](#-routing-structure)
   - [🛡️ Route Types](#️-route-types)
   - [🗺️ Main Routes](#️-main-routes)
-- [| `/app/not-found` | 404 Page         | Catch-All   |](#-appnot-found--404-page----------catch-all---)
 - [🚧 Areas for Improvement](#-areas-for-improvement)
   - [🕒 News Fetching Model](#-news-fetching-model)
   - [🔄 Favorites Sync Enhancements](#-favorites-sync-enhancements)
@@ -42,7 +41,6 @@ A mobile-friendly news aggregation app built with **Ionic React**, powered by **
 - [📸 Screenshots](#-screenshots)
 ---
 
-<br>
 
 ## 👥 User Needs
 
@@ -238,7 +236,7 @@ The app uses **React Router** to manage navigation across protected and public p
 | `NotFoundRoute`  | Catches all undefined routes and redirects to `/app/not-found`              |
 
 ### 🗺️ Main Routes
-
+<!-- toc-ignore-start -->
 | Path             | Page             | Access Type |
 |------------------|------------------|-------------|
 | `/login`         | Login Page       | Public      |
@@ -246,8 +244,11 @@ The app uses **React Router** to manage navigation across protected and public p
 | `/app/home`      | Home Feed        | Protected   |
 | `/app/favorites` | Favorites        | Protected   |
 | `/app/metrics`   | User Metrics     | Protected   |
+| `/app/settings/user-settings`  | User Settings | Protected   |
+| `/app/settings/theme` | Theme Settings         | Protected   |
 | `/app/about`     | About App        | Protected   |
 | `/app/not-found` | 404 Page         | Catch-All   |
+<!-- toc-ignore-start -->
 ---
 
 <br>

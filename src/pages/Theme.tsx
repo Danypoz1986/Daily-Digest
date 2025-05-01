@@ -1,4 +1,4 @@
-import { IonCol, IonContent, IonGrid, IonHeader, IonItem, IonLabel, IonPage, IonRow, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonItem, IonLabel, IonMenuButton, IonPage, IonRow, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
 import { getAuth } from 'firebase/auth';
 import { doc, getFirestore, setDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
@@ -77,8 +77,11 @@ const Theme: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar style={{ "--background": "#0057B8", "--color": "white" }}>
-          <IonTitle>Theme Settings</IonTitle>
+        <IonToolbar style={{"--background":"#0057B8", "--color":"white"}}>
+            <IonButtons slot="start">
+              <IonMenuButton/>
+            </IonButtons>
+          <IonTitle>Theme</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">

@@ -238,7 +238,7 @@ const Search: React.FC = () => {
                     <IonButtons slot="start">
                         <IonMenuButton style={{color:"white"}} />
                     </IonButtons>
-                    <IonTitle><IonIcon icon={searchOutline} style={{ verticalAlign: "-3px" }} /> Search Page</IonTitle>
+                    <IonTitle><IonIcon icon={searchOutline} style={{ verticalAlign: "-3px" }} />Search</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">

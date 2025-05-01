@@ -174,13 +174,13 @@ const Home: React.FC = () => {
           };
   
           await present("Fetching articles...");
-          if(!user) dismiss()
+          if(!user) {dismiss(); return;}
   
           while (validArticles.length < 20 && requestsCount < maxRequests) {
             const url = `https://newsdata.io/api/1/news?apikey=${apiKey}${nextPage ? `&page=${nextPage}` : ""}`;
   
             try {
-              if(!user) dismiss()
+              if(!user) {dismiss(); return;}
               const response = await fetchWithTimeout(url);
               const data = await response.json();
   

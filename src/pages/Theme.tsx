@@ -79,7 +79,7 @@ const Theme: React.FC = () => {
       <IonHeader>
         <IonToolbar style={{"--background":"#0057B8", "--color":"white"}}>
             <IonButtons slot="start">
-              <IonMenuButton/>
+              <IonMenuButton style={{color:"white"}}/>
             </IonButtons>
           <IonTitle>Theme</IonTitle>
         </IonToolbar>

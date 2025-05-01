@@ -147,7 +147,7 @@ import { toast } from 'sonner'
             <IonHeader>
                 <IonToolbar style={{"--background":"#0057B8", "--color":"white"}}>
                     <IonButtons slot="start">
-                        <IonMenuButton/>
+                        <IonMenuButton style={{color:"white"}}/>
                     </IonButtons>
                     <IonTitle>User Settings</IonTitle>
                 </IonToolbar>

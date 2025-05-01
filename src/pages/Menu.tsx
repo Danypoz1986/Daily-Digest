@@ -186,7 +186,7 @@ const Menu: React.FC = () => {
         <IonMenu contentId="main">
           <IonHeader>
             <IonToolbar color="primary">
-              <IonTitle>Menu</IonTitle>
+              <IonTitle style={{color:"white"}}>Menu</IonTitle>
             </IonToolbar>
           </IonHeader>
           <IonContent>

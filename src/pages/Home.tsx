@@ -174,11 +174,13 @@ const Home: React.FC = () => {
           };
   
           await present("Fetching articles...");
+          if(!user) dismiss()
   
           while (validArticles.length < 20 && requestsCount < maxRequests) {
             const url = `https://newsdata.io/api/1/news?apikey=${apiKey}${nextPage ? `&page=${nextPage}` : ""}`;
   
             try {
+              if(!user) dismiss()
               const response = await fetchWithTimeout(url);
               const data = await response.json();
   
@@ -226,7 +228,6 @@ const Home: React.FC = () => {
               validArticles.push(...filteredArticles);
   
               nextPage = data.nextPage;
-              if(!user) dismiss()
             } catch (error) {
               dismiss()
               if (error instanceof Error) {

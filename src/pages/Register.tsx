@@ -79,14 +79,11 @@ const doRegister = async (event: React.FormEvent<HTMLFormElement>) => {
       duration: 4000
     });
     
+    await setDoc(userRef, { registering: false }, { merge: true }); 
     await dismiss();
-    
-    setTimeout(async() => {
-        await setDoc(userRef, { registering: false }, { merge: true });
-    }, 2000);
-    
     await auth.signOut();
     router.push('/login', 'root');
+
     
     
 

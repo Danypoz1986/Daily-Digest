@@ -173,11 +173,13 @@ const Home: React.FC = () => {
             ]);
           };
   
-          
+          setTimeout(async() => {
           if(!user) {dismiss(); return;}
-
+          else{
           await present("Fetching articles...");
-  
+          }
+        }, 1000);  
+        
           while (validArticles.length < 20 && requestsCount < maxRequests) {
             const url = `https://newsdata.io/api/1/news?apikey=${apiKey}${nextPage ? `&page=${nextPage}` : ""}`;
   

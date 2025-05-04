@@ -50,6 +50,7 @@ const Home: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [present, dismiss] = useIonLoading();
   const [dark, setDark] = useState(false);
+  
 
   useEffect(() => {
     const fetchDarkMode = async () => {
@@ -97,6 +98,12 @@ const Home: React.FC = () => {
 
 
   useEffect(() => {
+   setTimeout(() => {
+    if (window.location.pathname !== "/app/home") {dismiss(); return;}
+   }, 1000);
+    
+  
+    
     const auth = getAuth();
     const db = getFirestore();
     
@@ -173,18 +180,30 @@ const Home: React.FC = () => {
             ]);
           };
   
-          setTimeout(async() => {
-          if(!user) {dismiss(); return;}
-          else{
-          await present("Fetching articles...");
+         
+          
+            await dismiss();
+            
+           
+          
+          if (!user) {
+            await dismiss();
+            return;
           }
-        }, 2000);  
+          
+          
+          if (window.location.pathname !== "/app/home") {
+            await dismiss();
+            return;
+          }
+          
+          await present("Fetching articles...");
 
           while (validArticles.length < 20 && requestsCount < maxRequests) {
             const url = `https://newsdata.io/api/1/news?apikey=${apiKey}${nextPage ? `&page=${nextPage}` : ""}`;
   
             try {
-              if(!user) {dismiss(); return;}
+              if(!user) return
               const response = await fetchWithTimeout(url);
               const data = await response.json();
   
@@ -233,7 +252,7 @@ const Home: React.FC = () => {
   
               nextPage = data.nextPage;
             } catch (error) {
-              dismiss()
+              await dismiss()
               if (error instanceof Error) {
                 const message = error.message.includes("timed out")
                   ? "⏳ Request took too long (over 1 minute)."

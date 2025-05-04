@@ -128,7 +128,7 @@ const Menu: React.FC = () => {
     const checkLastActivityOnStart = () => {
       const lastActivity = localStorage.getItem('lastActivity');
       const now = Date.now();
-      const timeoutLimit = 10 * /* <--minutes*/ 60 * 1000; 
+      const timeoutLimit = 3 * /* <--minutes*/ 60 * 1000; 
 
       if (lastActivity && now - parseInt(lastActivity, 10) > timeoutLimit) {
         console.log("🚪 Reopened after being inactive. Logging out...");
@@ -148,7 +148,7 @@ const Menu: React.FC = () => {
       inactivityTimer.current = setTimeout(() => {
         console.log("🚪 Auto-logout due to inactivity");
         logout("auto");
-      }, 10 /* <--minutes*/ * 60 * 1000); 
+      }, 3 /* <--minutes*/ * 60 * 1000); 
     };
 
     checkLastActivityOnStart();

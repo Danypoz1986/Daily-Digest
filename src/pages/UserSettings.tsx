@@ -124,7 +124,7 @@ import { toast } from 'sonner'
                 await deleteDoc(doc(getFirestore(), 'users', user.uid)); // if you have a 'users' collection
                 await firebaseDeleteUser(user); // ✅ correct method
                 setTimeout(() => {
-                    toast.success('Your account has been deleted.', { position: 'top-center', duration: 4000 });
+                    toast.success('Your account has been successfully deleted.', { position: 'top-center', duration: 4000 });
                 }, 500);
                 
               } catch (e) {

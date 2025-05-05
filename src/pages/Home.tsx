@@ -35,6 +35,7 @@ import timezone from 'dayjs/plugin/timezone';
 import 'swiper/css';
 import 'swiper/css/pagination' 
 import './Home.css'
+import { AlignCenter } from 'lucide-react';
 
 const API_KEYS = [import.meta.env.VITE_NEWSDATA_API_KEY_1, import.meta.env.VITE_NEWSDATA_API_KEY_2, import.meta.env.VITE_NEWSDATA_API_KEY_3]
 
@@ -492,7 +493,7 @@ const Home: React.FC = () => {
                                               height: "300px",      // force height
                                               objectFit: "cover",   // to crop and maintain aspect ratio
                                               display: 'block', 
-                                              margin: '0 auto', 
+                                              AlignCenter: '-3px' 
                                           }}
                                       />
                               </IonCardHeader>

@@ -23,6 +23,8 @@ const Menu: React.FC = () => {
   const auth = getAuth();
   const inactivityTimer = useRef<NodeJS.Timeout | null>(null);
   const [dark, setDark] = useState(false);
+  const lastFirestoreUpdate = useRef<number>(0);
+
   
     
       useEffect(() => {
@@ -70,7 +72,7 @@ const Menu: React.FC = () => {
       
 
   const logout = useCallback(async (type: "manual" | "auto" = "manual") => {
-    localStorage.removeItem("lastActivity");
+    
 
     if (inactivityTimer.current) {
       clearTimeout(inactivityTimer.current);
@@ -125,10 +127,14 @@ const Menu: React.FC = () => {
   useEffect(() => {
     if (!userId) return;
 
-    const checkLastActivityOnStart = () => {
-      const lastActivity = localStorage.getItem('lastActivity');
+    const checkLastActivityOnStart = async () => {
+      const db = getFirestore();
+      const userRef = doc(db, 'users', userId);
+      const userSnap = await getDoc(userRef);
+      const lastActivity = userSnap.data()?.session?.lastActivity || 0;
+
       const now = Date.now();
-      const timeoutLimit = 10 * /* <--minutes*/ 60 * 1000; 
+      const timeoutLimit = 3 * 60 * 1000;
 
       if (lastActivity && now - parseInt(lastActivity, 10) > timeoutLimit) {
         console.log("🚪 Reopened after being inactive. Logging out...");
@@ -136,40 +142,51 @@ const Menu: React.FC = () => {
       }
     };
 
-    const resetTimer = () => {
+    const resetTimer = async () => {
       if (inactivityTimer.current) {
-      clearTimeout(inactivityTimer.current);
-      inactivityTimer.current = null; // Clear it
-    }
+        clearTimeout(inactivityTimer.current);
+        inactivityTimer.current = null;
+      }
 
       const now = Date.now();
-      localStorage.setItem('lastActivity', now.toString());
+      const db = getFirestore();
+      const user = getAuth().currentUser;
+      if (!user) return;
+
+      if (now - lastFirestoreUpdate.current > 60000) {
+        await setDoc(doc(db, "users", user.uid), {
+          session: { lastActivity: now }
+        }, { merge: true });
+
+        lastFirestoreUpdate.current = now;
+      }
 
       inactivityTimer.current = setTimeout(() => {
         console.log("🚪 Auto-logout due to inactivity");
         logout("auto");
-      }, 10 /* <--minutes*/ * 60 * 1000); 
+      }, 3 * 60 * 1000);
     };
-
-    checkLastActivityOnStart();
-    resetTimer();
 
     const events = ["mousemove", "keydown", "touchstart"];
     const handleActivity = () => {
       resetTimer();
     };
 
+    (async () => {
+      await checkLastActivityOnStart();
+      await resetTimer();
+    })();
+
     events.forEach(event => window.addEventListener(event, handleActivity));
 
     return () => {
-
       if (inactivityTimer.current) {
         clearTimeout(inactivityTimer.current);
       }
-
       events.forEach(event => window.removeEventListener(event, handleActivity));
     };
   }, [userId, logout]);
+
 
   const paths = [
     { name: 'Home', url: '/app/home', icon: homeOutline },

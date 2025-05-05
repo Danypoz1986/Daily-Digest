@@ -110,7 +110,7 @@ const Home: React.FC = () => {
     const db = getFirestore();
     
     const now = dayjs().tz("Europe/Helsinki");
-    const fetchKey = now.format("YYYY-MM-DD-HH-mm");
+    const fetchKey = now.format("YYYY-MM-DD-HH");
     localStorage.setItem("currentFetchKey", fetchKey);
   
     const unsubscribe = auth.onAuthStateChanged(async (user) => {

@@ -134,7 +134,7 @@ const Menu: React.FC = () => {
       const lastActivity = userSnap.data()?.session?.lastActivity || 0;
 
       const now = Date.now();
-      const timeoutLimit = 3 /* <--minutes */ * 60 * 1000;
+      const timeoutLimit = 10 /* <--minutes */ * 60 * 1000;
 
       if (lastActivity && now - parseInt(lastActivity, 10) > timeoutLimit) {
         console.log("🚪 Reopened after being inactive. Logging out...");
@@ -164,7 +164,7 @@ const Menu: React.FC = () => {
       inactivityTimer.current = setTimeout(() => {
         console.log("🚪 Auto-logout due to inactivity");
         logout("auto");
-      }, 3 /* <--minutes */ * 60 * 1000);
+      }, 10 /* <--minutes */ * 60 * 1000);
     };
 
     const events = ["mousemove", "keydown", "touchstart"];

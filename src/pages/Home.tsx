@@ -35,6 +35,7 @@ import timezone from 'dayjs/plugin/timezone';
 import 'swiper/css';
 import 'swiper/css/pagination' 
 import './Home.css'
+import { useLocation } from 'react-router';
 
 const API_KEYS = [import.meta.env.VITE_NEWSDATA_API_KEY_1, import.meta.env.VITE_NEWSDATA_API_KEY_2, import.meta.env.VITE_NEWSDATA_API_KEY_3]
 
@@ -50,6 +51,7 @@ const Home: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [present, dismiss] = useIonLoading();
   const [dark, setDark] = useState(false);
+  const location = useLocation();
   
 
   useEffect(() => {
@@ -99,7 +101,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
    setTimeout(() => {
-    if (window.location.pathname !== "/app/home") {dismiss(); return;}
+    if (window.location.pathname !== "/app/home" || location.pathname !== "/app/home") {dismiss(); return;}
    }, 1000);
     
   
@@ -192,7 +194,7 @@ const Home: React.FC = () => {
           }
           
           
-          if (window.location.pathname !== "/app/home") {
+          if (window.location.pathname !== "/app/home" || location.pathname !== "/app/home") {
             await dismiss();
             return;
           }
@@ -305,7 +307,7 @@ const Home: React.FC = () => {
       console.log("🧹 Cleaning up onAuthStateChanged");
       unsubscribe();
     };
-  }, [present, dismiss]);
+  }, [present, dismiss, location.pathname]);
   
 
   const saveToFavorites = async(article: Article) =>{

@@ -90,7 +90,11 @@ const Menu: React.FC = () => {
 
       // You can keep Firestore logout flag if you want, but not necessary for activity
       await setDoc(userRef, {
-        session: { logoutInProgress: true, logoutType: type }
+        session: {
+          logoutInProgress: true,
+          logoutType: type,
+          lastActivity: null // <--- Set it to null
+        }
       }, { merge: true });
 
       await signOut(auth);

@@ -93,7 +93,7 @@ const Menu: React.FC = () => {
         session: {
           logoutInProgress: true,
           logoutType: type,
-          lastActivity: null // <--- Set it to null
+          ...(type === 'manual' && {lastActivity: null})
         }
       }, { merge: true });
 

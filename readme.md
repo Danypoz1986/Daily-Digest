@@ -86,7 +86,7 @@ All other users can:
 
 - Change their password  
 - Permanently delete their account from within the app
-
+---
 
 <br>
 
@@ -97,6 +97,7 @@ All other users can:
 - This ensures news content is relevant while avoiding unnecessary API calls and staying within the rate limits of the NewsData API.
 - To simulate fresher news, the app sorts all fetched and stored articles by `pubDate` before displaying them to users, ensuring that the most recent content appears at the top.
 ---
+
 <br>
 
 ## 📦 Tech Stack
@@ -285,6 +286,9 @@ This is likely due to inconsistencies in the NewsData API response. Filtering by
 
 - Basic unit and e2e testing are implemented.  
 - Could be expanded with more edge cases and error-handling tests, especially for network failures.
+---
+
+<br>
 
 ## 📸 Screenshots
 
